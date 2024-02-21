@@ -1,0 +1,152 @@
+A}
+employee (ID:integer, person_name:string,
+street:string, city:integer)
+
+
+works (ID:integer, company _name: string)
+
+
+company (company _name: string, city: string)
+
+
+manages (ID: integer, manager _id: integer)
+
+
+ 
+
+
+Underlined attributes are primary key
+
+
+ 
+
+
+1. Create tables with ORACLE using SQL DDL statements.
+
+------------>>>>>
+
+CREATE TABLE employee (
+    ID INTEGER PRIMARY KEY,
+    person_name VARCHAR2(255),
+    street VARCHAR2(255),
+    city INTEGER
+);
+
+CREATE TABLE works (
+    ID INTEGER PRIMARY KEY,
+    company_name VARCHAR2(255)
+);
+
+CREATE TABLE company (
+    company_name VARCHAR2(255) PRIMARY KEY,
+    city VARCHAR2(255)
+);
+
+CREATE TABLE manages (
+    ID INTEGER PRIMARY KEY,
+    manager_id INTEGER
+);
+
+```````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+2. add column (salary:
+integr)  in works table
+
+-------------------->>>>>
+ALTER TABLE works
+ADD salary INTEGER;
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+3. modify the
+type of city column in employee to string
+
+-------------->>>>>>
+ALTER TABLE employee
+MODIFY city VARCHAR2(255);
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+4. delete column
+street from employee table
+
+------------>>>>>>>>
+
+ALTER TABLE employee
+DROP COLUMN street;
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+5. change the
+name of the column manager_id to manager in manages table
+
+------------>>>>>>
+ALTER TABLE manages
+RENAME COLUMN manager_id TO manager;
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+6. rename table company
+to CMP
+------------->>>>>
+
+ALTER TABLE company
+RENAME TO CMP;
+
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+7. Drop table manages
+
+---------->>>>>>>
+
+DROP TABLE manages;
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+B}
+employee(empno , empname, designation, city, salary,
+zipcode, country)
+
+------------->>>>>>>>>>>>
+
+CREATE TABLE employee (
+    empno INTEGER PRIMARY KEY,
+    empname VARCHAR2(255),
+    designation VARCHAR2(255),
+    city VARCHAR2(255),
+    salary INTEGER,
+    zipcode VARCHAR2(255),
+    country VARCHAR2(255)
+);
+
+
+1. Creates a sequence used to generate employee
+numbers for the empno column of the emp table
+
+------------->>>>>>>>>>>>
+
+CREATE SEQUENCE empno_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCYCLE;
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+2. Create an Index on county
+
+------------->>>>>>>>>>>>
+
+CREATE INDEX county_index
+ON employee (county);
+
+
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+3. Create a view for employees having salary <50000
+and stays in ‘Mumbai’
+
+------------->>>>>>>>>>>>
+
+CREATE VIEW mumbai_low_salary_employees AS
+SELECT *
+FROM employee
+WHERE salary < 50000
+AND city = 'Mumbai';
+
