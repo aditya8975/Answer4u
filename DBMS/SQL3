@@ -1,0 +1,53 @@
+
+
+Here are ten SQL queries that demonstrate the use of various DML statements, operators, and functions:
+
+1>
+Insert a new record into the "students" table:
+______________________________________________________________
+INSERT INTO students (id, name, age, grade) VALUES (1, 'Alice', 18, 'A');
+
+2>
+Select all records from the "students" table:
+___________________________________________________________________
+SELECT * FROM students;
+
+3>
+Update the grade of a student:
+____________________________________________________
+UPDATE students SET grade = 'B' WHERE id = 1;
+
+4>
+Delete a record from the "students" table:
+________________________________________________
+DELETE FROM students WHERE id = 1;
+
+5>
+Select the total number of students in each grade:
+______________________________________________
+SELECT grade, COUNT(*) AS total_students FROM students GROUP BY grade;
+
+6>
+Select the average age of students:
+_____________________________________________
+SELECT AVG(age) AS average_age FROM students;
+
+7>
+Select the name of students whose name starts with 'A':
+________________________________________________
+SELECT name FROM students WHERE name LIKE 'A%';
+
+8>
+Select the current date and time:
+_________________________________________
+SELECT NOW() AS current_datetime;
+
+9>
+Select the total number of students:
+__________________________________________
+SELECT COUNT(*) AS total_students FROM students;
+
+10>
+Select the maximum and minimum age of students:
+____________________________________
+SELECT MAX(age) AS max_age, MIN(age) AS min_age FROM students;
